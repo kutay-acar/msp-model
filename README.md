@@ -53,19 +53,19 @@ All runs are executed in module mode.
 ### Full configuration (typology + adapters)
 
 ```bash
-python -m src.training.joint_trainer   --train_manifest train.tsv   --dev_manifest dev.tsv   --output runs/full_model   --uriel_dim 64
+python -m joint_msp_model.training.joint_trainer   --train_manifest train.tsv   --dev_manifest dev.tsv   --output runs/full_model   --uriel_dim 64
 ```
 
 ### Typology only (no adapters)
 
 ```bash
-python -m src.training.joint_trainer   --train_manifest train.tsv   --dev_manifest dev.tsv   --output runs/no_adapters   --uriel_dim 64   --no_adapters
+python -m joint_msp_model.training.joint_trainer   --train_manifest train.tsv   --dev_manifest dev.tsv   --output runs/no_adapters   --uriel_dim 64   --no_adapters
 ```
 
 ### Baseline (no typology, no adapters)
 
 ```bash
-python -m src.training.joint_trainer   --train_manifest train.tsv   --dev_manifest dev.tsv   --output runs/no_typology   --no_typology   --no_adapters
+python -m joint_msp_model.training.joint_trainer   --train_manifest train.tsv   --dev_manifest dev.tsv   --output runs/no_typology   --no_typology   --no_adapters
 ```
 
 ## Inference / Prediction
@@ -83,10 +83,10 @@ Prediction is performed with a separate script that loads a trained checkpoint, 
 ### Example: Turkish prediction
 
 ```bash
-python path/to/predict.py \
+python joint_msp_model/inference/predict.py \
   --raw_file data/tr/test.conllu \
   --train_conllu data/tr/train.conllu \
-  --joint_model runs/full_udapter/best-model.pt \
+  --joint_model runs/full_model/best-model.pt \
   --output predictions/tr_test.pred.conllu \
   --lang tr
 ```
@@ -94,10 +94,10 @@ python path/to/predict.py \
 ### Example: Czech prediction
 
 ```bash
-python path/to/predict.py \
+python oint_msp_model/inference/predict.py \
   --raw_file data/cs/test.conllu \
   --train_conllu data/cs/train.conllu \
-  --joint_model runs/full_udapter/best-model.pt \
+  --joint_model runs/full_model/best-model.pt \
   --output predictions/cs_test.pred.conllu \
   --lang cs
 ```
@@ -105,10 +105,10 @@ python path/to/predict.py \
 ### Example: custom batch size and morphology threshold
 
 ```bash
-python path/to/predict.py \
+python oint_msp_model/inference/predict.py \
   --raw_file data/tr/dev.conllu \
   --train_conllu data/tr/train.conllu \
-  --joint_model runs/full_udapter/best-model.pt \
+  --joint_model runs/full_model/best-model.pt \
   --output predictions/tr_dev.pred.conllu \
   --lang tr \
   --batch_size 16 \
