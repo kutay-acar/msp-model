@@ -1,0 +1,10 @@
+flair==0.15.1
+lang2vec==1.1.2
+matplotlib==3.10.8
+numpy==2.4.4
+pandas==3.0.2
+scikit_learn==1.8.0
+scipy==1.17.1
+seaborn==0.13.2
+torch==2.5.1
+torch_struct==0.5
