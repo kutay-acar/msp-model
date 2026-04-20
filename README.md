@@ -83,7 +83,7 @@ Prediction is performed with a separate script that loads a trained checkpoint, 
 ### Example: Turkish prediction
 
 ```bash
-python joint_msp_model/inference/predict.py \
+python -m joint_msp_model.inference.predict \
   --raw_file data/tr/test.conllu \
   --train_conllu data/tr/train.conllu \
   --joint_model runs/full_model/best-model.pt \
@@ -94,7 +94,7 @@ python joint_msp_model/inference/predict.py \
 ### Example: Czech prediction
 
 ```bash
-python oint_msp_model/inference/predict.py \
+python -m joint_msp_model.inference.predict \
   --raw_file data/cs/test.conllu \
   --train_conllu data/cs/train.conllu \
   --joint_model runs/full_model/best-model.pt \
@@ -105,7 +105,7 @@ python oint_msp_model/inference/predict.py \
 ### Example: custom batch size and morphology threshold
 
 ```bash
-python oint_msp_model/inference/predict.py \
+python -m joint_msp_model.inference.predict \
   --raw_file data/tr/dev.conllu \
   --train_conllu data/tr/train.conllu \
   --joint_model runs/full_model/best-model.pt \
